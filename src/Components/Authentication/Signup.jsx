@@ -1,6 +1,7 @@
 const signup = () => {
   return (
     <>
+      {/* Header */}
       <div className="flex px-4 items-center">
         <button className="py-1 mr-9">
           <i className="fas fa-xmark text-white text-4xl scale-75"></i>
@@ -10,6 +11,7 @@ const signup = () => {
         </div>
       </div>
       <div className="px-8">
+      {/* input fields */}
         <p className="my-5 text-2xl font-bold">Create your account</p>
         <div className="py-3">
           <input
@@ -25,7 +27,13 @@ const signup = () => {
             placeholder="Email"
           />
         </div>
+        {/* data of birth */}
+      <div className="pt-6 mb-2 font-robot text-lg font-bold">
+        Date of birth
       </div>
+      <p className="text-xs text-gray-400/75">This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.</p>
+      </div>
+      
     </>
   );
 };
