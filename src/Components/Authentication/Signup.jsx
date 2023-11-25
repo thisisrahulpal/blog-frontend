@@ -40,7 +40,7 @@ const signup = () => {
               </p>
               <div className="relative mt-3">
                 <input
-                  className="p-3 py-4 w-full border bg-black border-gray-600/75 rounded focus:ring-offset-white focus:outline-none focus:outline-blue-500 font-roboto"
+                  className="p-3 py-4 w-full border  bg-black border-gray-600/75 rounded focus:ring-offset-white focus:outline focus:outline-blue-500 font-roboto"
                   type="Date"
                   placeholder="Date of birth"
                 />
