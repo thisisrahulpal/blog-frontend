@@ -1,6 +1,7 @@
 import React from "react";
 import DP from "../../assets/faces/user-dp.jpeg";
 import Tweet from "./Tweet";
+import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
@@ -42,9 +43,11 @@ const Home = () => {
           <div className="px-7">
             <div className="flex justify-end mb-8">
               {/* New Tweet button */}
-              <button className="bg-blue-500 text-white w-14 h-14 rounded-full">
-                <i class="fa-solid fa-plus fa-xl"></i>
-              </button>
+              <Link to="/tweet">
+                <button className="bg-blue-500 text-white w-14 h-14 rounded-full">
+                  <i className="fa-solid fa-plus fa-xl"></i>
+                </button>
+              </Link>
             </div>
           </div>
 

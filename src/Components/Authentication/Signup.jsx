@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const signup = () => {
   return (
     <>
@@ -53,7 +55,7 @@ const signup = () => {
         </div>
         <div className="flex items-center px-8">
           <button className="py-3 my-6 w-full bg-white font-bold text-black rounded-full">
-            Next
+            <Link to="/verifyOtp">Next</Link>
           </button>
         </div>
       </div>

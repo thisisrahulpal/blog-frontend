@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom"
+import Home from "../Feed/Home"
 
 const Otp = () => {
   return (
@@ -78,7 +80,7 @@ const Otp = () => {
           <div className="mx-auto text-sm mt-11">Didn't receive code? <strong className="text-blue-500">Resend code</strong></div>
           
           <button className="py-3 my-6 w-full font-bold bg-white text-black rounded-full">
-            Verify OTP
+            <Link to="/">Verify OTP</Link>
           </button>
         </div>
       </form>
