@@ -8,7 +8,7 @@ const Home = () => {
     <>
       <div className="flex flex-col min-h-screen">
         {/* Navbar */}
-        <nav className="border-b border-gray-700/75">
+        <nav className="border-b mt-1 border-gray-700/75">
           <div className="flex flex-col">
             <div className="flex flex-row items-center justify-between  px-4">
               {/* Your navigation content goes here */}
@@ -39,7 +39,7 @@ const Home = () => {
         <Tweet/>
         
         {/* Menubar */}
-        <div className=" text-white p-3 bg-black fixed bottom-0 w-full border-t border-gray-700/75">
+        <div className=" text-white p-4 bg-black fixed bottom-0 w-full border-t border-gray-700/75">
           {/* Your bottom bar content goes here */}
           <div className="flex justify-around">
             <button>
