@@ -9,7 +9,7 @@ const signup = () => {
               <i className="fas fa-xmark text-white text-4xl scale-75"></i>
             </button>
             <div className="py-3">
-              <p className="font-robot text-xl font-bold">Step 1 of 5 </p>
+              <p className="font-robot text-xl font-bold">Step 1 of 2</p>
             </div>
           </div>
           <div className="flex flex-col ">
@@ -52,7 +52,7 @@ const signup = () => {
           </div>
         </div>
         <div className="flex items-center px-8">
-          <button className="py-3 my-6 w-full bg-white text-black rounded-full">
+          <button className="py-3 my-6 w-full bg-white font-bold text-black rounded-full">
             Next
           </button>
         </div>
