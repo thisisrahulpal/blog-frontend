@@ -35,23 +35,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -85,23 +85,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -135,23 +135,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -186,23 +186,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -238,23 +238,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -290,23 +290,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -342,23 +342,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -393,23 +393,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -443,23 +443,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -493,23 +493,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -544,23 +544,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -596,23 +596,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -648,23 +648,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
@@ -700,23 +700,23 @@ const Tweet = () => {
           <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
             {/* comments */}
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-comment"></i>
+            <i className="fa-regular fa-comment"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-retweet"></i>
+            <i className="fa-solid fa-retweet"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-regular fa-heart"></i>
+            <i className="fa-regular fa-heart"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div className="flex space-x-1 items-center">
-            <i class="fa-solid fa-chart-simple"></i>
+            <i className="fa-solid fa-chart-simple"></i>
             <p className="text-sm">4.4K</p>
             </div>
             <div>
-            <i class="fa-regular fa-bookmark"></i>
+            <i className="fa-regular fa-bookmark"></i>
             </div>
           </div>
         </div>
