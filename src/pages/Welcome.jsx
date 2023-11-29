@@ -5,10 +5,9 @@ import { jwtDecode } from "jwt-decode";
 import axios from "axios";
 
 const Welcome = () => {
-
   const responseMessage = (response) => {
-    const token = response.credential
-    const decode = jwtDecode(token)
+    const token = response.credential;
+    const decode = jwtDecode(token);
     console.log("data:::", decode);
   };
   const errorMessage = (response) => {
@@ -37,8 +36,15 @@ const Welcome = () => {
                 <p className="font-prompt text-2xl font-bold">Join today.</p>
               </div>
               {/* sign in with google */}
-              <div className="my-4 pl-8">
-              <GoogleLogin type="standard" size="large" shape="pill" onSuccess={responseMessage} onError={errorMessage} />
+              <div className="flex w-full">
+                <div className="my-4 mx-auto">
+                  <GoogleLogin
+                    theme="outline"
+                    shape="circle"
+                    onSuccess={responseMessage}
+                    onError={errorMessage}
+                  />
+                </div>
               </div>
 
               {/* separater line */}
