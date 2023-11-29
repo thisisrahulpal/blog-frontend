@@ -3,6 +3,13 @@ import { Link } from "react-router-dom";
 import Home from "../Feed/Home";
 
 const Otp = () => {
+  const focusNextInput = (e, prevId, nextId) => {
+    if (e.target.value.length === 0) {
+      document.getElementById(prevId).focus();
+    } else {
+      document.getElementById(nextId).focus();
+    }
+  };
   return (
     <div>
       <form className="max-w-sm mx-auto">
@@ -26,58 +33,21 @@ const Otp = () => {
           </p>
           {/* OTP */}
           <div className="flex mx-auto mt-16 space-x-6 rtl:space-x-reverse">
-            <div>
-              <label for="code-1" className="sr-only">
-                First code
-              </label>
-              <input
-                type="text"
-                maxlength="1"
-                onkeyup="focusNextInput(this, 'code-1', 'code-2')"
-                id="code-1"
-                className="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                required
-              />
-            </div>
-            <div>
-              <label for="code-2" className="sr-only">
-                Second code
-              </label>
-              <input
-                type="text"
-                maxlength="1"
-                onkeyup="focusNextInput(this, 'code-1', 'code-3')"
-                id="code-2"
-                className="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                required
-              />
-            </div>
-            <div>
-              <label for="code-3" className="sr-only">
-                Third code
-              </label>
-              <input
-                type="text"
-                maxlength="1"
-                onkeyup="focusNextInput(this, 'code-2', 'code-4')"
-                id="code-3"
-                className="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                required
-              />
-            </div>
-            <div>
-              <label for="code-4" className="sr-only">
-                Fourth code
-              </label>
-              <input
-                type="text"
-                maxlength="1"
-                onkeyup="focusNextInput(this, 'code-3', 'code-5')"
-                id="code-4"
-                className="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                required
-              />
-            </div>
+          {[1, 2, 3, 4].map((index) => (
+          <div key={`code-${index}`}>
+            <label htmlFor={`code-${index}`} className="sr-only">
+              {`${index === 1 ? 'First' : index === 6 ? 'Sixth' : `${index}th`} code`}
+            </label>
+            <input
+              type="text"
+              maxLength="1"
+              onKeyUp={(e) => focusNextInput(e, `code-${index - 1}`, `code-${index + 1}`)}
+              id={`code-${index}`}
+              className="block w-9 h-9 py-3 text-sm font-extrabold text-center text-gray-900 bg-white border border-gray-300 rounded-lg focus:ring-primary-100  focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 outline-none"
+              required
+            />
+          </div>
+        ))}
           </div>
           <div className="mx-auto text-sm mt-11">
             Didn't receive code?{" "}
