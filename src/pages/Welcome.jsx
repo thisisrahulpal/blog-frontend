@@ -1,7 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GoogleLogin } from "@react-oauth/google";
+import { jwtDecode } from "jwt-decode";
+import axios from "axios";
 
 const Welcome = () => {
+
+  const responseMessage = (response) => {
+    const token = response.credential
+    const decode = jwtDecode(token)
+    console.log("data:::", decode);
+  };
+  const errorMessage = (response) => {
+    console.log("response:", response);
+  };
+
   return (
     <>
       {/* cover container */}
@@ -24,13 +37,9 @@ const Welcome = () => {
                 <p className="font-prompt text-2xl font-bold">Join today.</p>
               </div>
               {/* sign in with google */}
-
-              <button
-                className="py-3 my-4 w-full bg-white font-bold text-black rounded-full"
-                type="submit"
-              >
-                Sign in with google
-              </button>
+              <div className="my-4 pl-8">
+              <GoogleLogin type="standard" size="large" shape="pill" onSuccess={responseMessage} onError={errorMessage} />
+              </div>
 
               {/* separater line */}
               <div className="flex flex-row items-center">
