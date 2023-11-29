@@ -15,10 +15,6 @@ const signup = () => {
   return (
     <>
       {/* Header */}
-      <form
-        className="flex flex-col justify-between h-screen"
-        onSubmit={handleSubmit}
-      >
         <div>
           <div className="flex px-4 items-center">
             <Link to="/">
@@ -82,7 +78,6 @@ const signup = () => {
             <Link to="/verifyOtp">Next</Link>
           </button>
         </div>
-      </form>
     </>
   );
 };
