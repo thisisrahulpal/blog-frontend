@@ -80,7 +80,7 @@ const Otp = () => {
           <div className="mx-auto text-sm mt-11">Didn't receive code? <strong className="text-blue-500">Resend code</strong></div>
           
           <button className="py-3 my-6 w-full font-bold bg-white text-black rounded-full">
-            <Link to="/">Verify OTP</Link>
+            <Link to="/home">Verify OTP</Link>
           </button>
         </div>
       </form>

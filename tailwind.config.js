@@ -6,11 +6,11 @@ export default {
       backgroundColor: {
         black: "#000",
       },
-      fontFamily:{
-        roboto: ['Roboto', 'sans-serif'],
-        lobster: ['Lobster', 'sans-serif']
-
-      }
+      fontFamily: {
+        roboto: ["Roboto", "sans-serif"],
+        lobster: ["Lobster", "sans-serif"],
+        prompt: ["Prompt", "sans-serif"],
+      },
     },
   },
   plugins: [],

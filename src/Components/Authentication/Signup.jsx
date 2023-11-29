@@ -1,15 +1,32 @@
-import { Link } from "react-router-dom"
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const signup = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("name is: ", name);
+    console.log("email is: ", email);
+    setEmail("");
+    setName("");
+  };
   return (
     <>
       {/* Header */}
-      <div className="flex flex-col justify-between h-screen">
+      <form
+        className="flex flex-col justify-between h-screen"
+        onSubmit={handleSubmit}
+      >
         <div>
           <div className="flex px-4 items-center">
-            <button className="py-1 mr-9">
-              <i className="fas fa-xmark text-white text-4xl scale-75"></i>
-            </button>
+            <Link to="/">
+              <button className="py-1 mr-9">
+                <i className="fas fa-xmark text-white text-4xl scale-75"></i>
+              </button>
+            </Link>
+
             <div className="py-3">
               <p className="font-robot text-xl font-bold">Step 1 of 2</p>
             </div>
@@ -23,6 +40,8 @@ const signup = () => {
                   className="p-3 py-4 w-full focus:ring-offset-white focus:outline focus:outline-blue-500 font-roboto rounded border bg-black border-gray-600/75  "
                   type="text"
                   placeholder="Name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="py-3">
@@ -30,6 +49,8 @@ const signup = () => {
                   className="p-3 py-4 w-full focus:ring-offset-white focus:outline focus:outline-blue-500 font-roboto rounded border bg-black border-gray-600/75  "
                   type="text"
                   placeholder="Email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               {/* data of birth */}
@@ -54,11 +75,14 @@ const signup = () => {
           </div>
         </div>
         <div className="flex items-center px-8">
-          <button className="py-3 my-6 w-full bg-white font-bold text-black rounded-full">
+          <button
+            className="py-3 my-6 w-full bg-white font-bold text-black rounded-full"
+            type="submit"
+          >
             <Link to="/verifyOtp">Next</Link>
           </button>
         </div>
-      </div>
+      </form>
     </>
   );
 };
