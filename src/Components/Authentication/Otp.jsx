@@ -1,15 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom"
-import Home from "../Feed/Home"
+import { Link } from "react-router-dom";
+import Home from "../Feed/Home";
 
 const Otp = () => {
   return (
     <div>
       <form className="max-w-sm mx-auto">
         <div className="px-4  flex-col">
-          <button className="py-3 mr-9">
-            <i className="fa-solid fa-arrow-left text-white text-4xl scale-75"></i>
-          </button>
+          <Link to="/signup">
+            <button className="py-3 mr-9">
+              <i className="fa-solid fa-arrow-left text-white text-4xl scale-75"></i>
+            </button>
+          </Link>
         </div>
         <div className="flex flex-col px-8">
           <p className="pt-2 text-2xl font-bold" c>
@@ -77,8 +79,11 @@ const Otp = () => {
               />
             </div>
           </div>
-          <div className="mx-auto text-sm mt-11">Didn't receive code? <strong className="text-blue-500">Resend code</strong></div>
-          
+          <div className="mx-auto text-sm mt-11">
+            Didn't receive code?{" "}
+            <strong className="text-blue-500">Resend code</strong>
+          </div>
+
           <button className="py-3 my-6 w-full font-bold bg-white text-black rounded-full">
             <Link to="/home">Verify OTP</Link>
           </button>
