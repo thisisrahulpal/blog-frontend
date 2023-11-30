@@ -47,7 +47,7 @@ const Welcome = () => {
                 </div>
               </div>
 
-              {/* separater line */}
+              {/* separater or line */}
               <div className="flex flex-row items-center">
                 <div className="w-full h-px bg-gray-600/75"></div>
                 <p className="px-2">or</p>
