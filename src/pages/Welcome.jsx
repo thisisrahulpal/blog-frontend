@@ -53,7 +53,7 @@ const Welcome = () => {
                 <p className="px-2">or</p>
                 <div className="w-full h-px bg-gray-600/75"></div>
               </div>
-              {/* create account */}
+              {/* create new account */}
               <Link to="/signup">
                 <button
                   className="py-2 mt-4 mb-1 w-full bg-sky-500 font-bold  rounded-full"
