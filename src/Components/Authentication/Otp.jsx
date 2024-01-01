@@ -1,25 +1,38 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Home from "../Feed/Home";
+import { useSelector } from "react-redux";
+import { useVerfiyOtpMutation } from "../../features/userApiSlice"
 
 const Otp = () => {
-  const [otp, setOtp] =useState("")
+  const [otp, setOtp] = useState("");
+  const { unverifiedUser } = useSelector((state) => state.auth);
+  const [ verifyOtp, {isLoading} ] = useVerfiyOtpMutation()
+  const navigate = useNavigate()
+
   const focusNextInput = (e, prevId, nextId) => {
-    setOtp(otp+e.target.value)
+    setOtp(otp + e.target.value);
     const prevInput = document.getElementById(prevId);
     const nextInput = document.getElementById(nextId);
-  
+    
     if (prevInput && e.target.value.length === 0) {
       prevInput.focus();
     } else if (nextInput) {
       nextInput.focus();
     }
   };
-
-  const handleSubmit = (e) => {
+  
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("opt: ",otp)
-  }
+    try {
+      const res = await verifyOtp({email: unverifiedUser, otp})
+      navigate("/home")
+    } catch (error) {
+      console.log("error: ", error)
+    }
+    console.log("unverifiedUser", unverifiedUser);
+    console.log("opt: ", otp);
+  };
   return (
     <form className="max-w-sm mx-auto" onSubmit={handleSubmit}>
       <div className="px-4  flex-col">
@@ -65,9 +78,12 @@ const Otp = () => {
           <strong className="text-blue-500">Resend code</strong>
         </div>
 
-          <button className="py-3 my-6 w-full font-bold bg-white text-black rounded-full" type="submit">
-            Verify OTP
-          </button>
+        <button
+          className="py-3 my-6 w-full font-bold bg-white text-black rounded-full"
+          type="submit"
+        >
+          Verify OTP
+        </button>
       </div>
     </form>
   );

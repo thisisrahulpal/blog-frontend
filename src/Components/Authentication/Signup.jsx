@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useRegisterMutation } from "../../features/userApiSlice";
+import { unverifiedCredentials } from "../../features/authSlice"
 // import { setCredentials } from "../../features/authSlice";
 
 const signup = () => {
@@ -24,15 +25,14 @@ const signup = () => {
         setUnmatchPassword(true);
       } else {
         setUnmatchPassword(false);
-        const data = {
+        dispatch(unverifiedCredentials(email))
+        const res = await register({
           name,
           email,
           username,
           password,
-        };
-        console.log(data);
-        const res = await register(data).unwrap();
-        navigate("/verifyOtp")
+        }).unwrap();
+        navigate("/verifyOtp");
         setEmail("");
         setName("");
       }
