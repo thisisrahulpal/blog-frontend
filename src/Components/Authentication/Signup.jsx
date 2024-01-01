@@ -27,7 +27,7 @@ const signup = () => {
         const data = {
           name,
           email,
-          userName: username,
+          username,
           password,
         };
         console.log(data);

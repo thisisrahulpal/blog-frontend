@@ -16,7 +16,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: process.env.VITE_BASE_URL ,
+        target: "https://twitter-gray-gamma.vercel.app" ,
         changeOrigin: true,
       },
     },
