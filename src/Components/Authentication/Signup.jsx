@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useRegisterMutation } from "../../features/userApiSlice";
 import { unverifiedCredentials } from "../../features/authSlice"
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify'
 // import { setCredentials } from "../../features/authSlice";
 
 const signup = () => {
@@ -38,6 +41,7 @@ const signup = () => {
       }
     } catch (error) {
       console.log(error);
+      toast.error(error.data.error)
     }
   };
   return (
@@ -173,6 +177,7 @@ const signup = () => {
           {/* <div className="px-8"></div> */}
         </form>
       </div>
+      <ToastContainer position="top-center" hideProgressBar theme="dark" />
     </>
   );
 };
