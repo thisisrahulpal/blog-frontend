@@ -1,6 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.jsx";
 import {
   Route,
   RouterProvider,
@@ -18,20 +17,23 @@ import Signup from "./Components/Authentication/Signup";
 import Home from "./Components/Feed/Home";
 import Tweet from "./Components/Tweet/NewTweet";
 import Welcome from "./pages/Welcome";
-import Auth from "./pages/Auth.jsx";
+import App from "./App.jsx";
+import PrivateRoute from "./Components/PrivateRoute.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path="/" element={<Auth />}>
+      <Route path="/" element={<App />}>
         <Route index={true} path="/" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/verifyOtp" element={<Otp />} />
+        
+        <Route path="" element={<PrivateRoute />}>
+          <Route path="/tweet" element={<Tweet />} />
+          <Route path="/home" element={<Home />} />
+        </Route>
       </Route>
-
-      <Route path="/home" element={<Home />} />
-      <Route path="/tweet" element={<Tweet />} />
     </>
   )
 );

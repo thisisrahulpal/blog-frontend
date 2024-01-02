@@ -2,11 +2,14 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useRegisterMutation } from "../../features/userApiSlice";
-import { unverifiedCredentials } from "../../features/authSlice";
+import {
+  unverifiedCredentials,
+  setCredentials,
+} from "../../features/authSlice";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { toast } from "react-toastify";
-import Loader from "../Util/Loader"
+import Loader from "../Util/Loader";
 // import { setCredentials } from "../../features/authSlice";
 
 const signup = () => {
@@ -49,7 +52,7 @@ const signup = () => {
     <>
       <div className="relative h-screen flex items-center justify-center">
         {/* Header */}
-        {isLoading ? <Loader/> : null}
+        {isLoading ? <Loader /> : null}
 
         <form
           className="flex flex-col justify-between h-screen"

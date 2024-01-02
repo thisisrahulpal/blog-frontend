@@ -46,7 +46,7 @@ const Welcome = () => {
                   />
                 </div>
               </div>
-
+l
               {/* separater or line */}
               <div className="flex flex-row items-center">
                 <div className="w-full h-px bg-gray-600/75"></div>

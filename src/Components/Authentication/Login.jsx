@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useLoginMutation } from "../../features/userApiSlice";
 import Loader from "../Util/Loader";
-// import { setCredentials } from "../../features/authSlice";
+import { setCredentials } from "../../features/authSlice";
 
 const signup = () => {
   const [email, setEmail] = useState("");
@@ -21,8 +21,10 @@ const signup = () => {
         email,
         password,
       }).unwrap();
+
       console.log("🚀 ~ res:", res);
-      // navigate("/home");
+      dispatch(setCredentials({ ...res.data }))
+      navigate("/home");
       // setEmail("");
       // setName("");
     } catch (error) {

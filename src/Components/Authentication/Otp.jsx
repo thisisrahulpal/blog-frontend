@@ -1,14 +1,19 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Home from "../Feed/Home";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useVerfiyOtpMutation } from "../../features/userApiSlice"
+import { setCredentials } from "../../features/authSlice";
 
 const Otp = () => {
   const [otp, setOtp] = useState("");
   const { unverifiedUser } = useSelector((state) => state.auth);
   const [ verifyOtp, {isLoading} ] = useVerfiyOtpMutation()
+
   const navigate = useNavigate()
+
+  const dispatch = useDispatch()
+
 
   const focusNextInput = (e, prevId, nextId) => {
     setOtp(otp + e.target.value);
@@ -26,6 +31,8 @@ const Otp = () => {
     e.preventDefault();
     try {
       const res = await verifyOtp({email: unverifiedUser, otp})
+      console.log("res",res)
+      dispatch(setCredentials({...res.data}))
       navigate("/home")
     } catch (error) {
       console.log("error: ", error)
