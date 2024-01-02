@@ -7,6 +7,7 @@ import axios from "axios";
 const Welcome = () => {
   const responseMessage = (response) => {
     const token = response.credential;
+    console.log("🚀 ~ token:", token)
     const decode = jwtDecode(token);
     console.log("data:::", decode);
   };
