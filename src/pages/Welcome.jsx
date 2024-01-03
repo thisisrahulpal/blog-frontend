@@ -1,15 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
 import { jwtDecode } from "jwt-decode";
+import { useCookies } from 'react-cookie';
+import { setCredentials } from '../features/authSlice';
+
 import axios from "axios";
+import { useDispatch } from "react-redux"
 
 const Welcome = () => {
+  const [cookies, setCookie] = useCookies(['jwt']);
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   const responseMessage = (response) => {
     const token = response.credential;
+    setCookie('jwt', token, { path: '/' });
     console.log("🚀 ~ token:", token)
-    const decode = jwtDecode(token);
-    console.log("data:::", decode);
+    const {email, name } = jwtDecode(token);
+    const userData = {
+      email,
+      name
+    }
+    dispatch(setCredentials({...userData}))
+    navigate('/home')
   };
   const errorMessage = (response) => {
     console.log("response:", response);

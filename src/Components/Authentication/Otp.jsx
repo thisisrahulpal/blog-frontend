@@ -1,41 +1,40 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Home from "../Feed/Home";
+import Home from "../Feed/Feed";
 import { useDispatch, useSelector } from "react-redux";
-import { useVerfiyOtpMutation } from "../../features/userApiSlice"
+import { useVerfiyOtpMutation } from "../../features/userApiSlice";
 import { setCredentials } from "../../features/authSlice";
 
 const Otp = () => {
   const [otp, setOtp] = useState("");
   const { unverifiedUser } = useSelector((state) => state.auth);
-  const [ verifyOtp, {isLoading} ] = useVerfiyOtpMutation()
+  const [verifyOtp, { isLoading }] = useVerfiyOtpMutation();
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
 
   const focusNextInput = (e, prevId, nextId) => {
     setOtp(otp + e.target.value);
     const prevInput = document.getElementById(prevId);
     const nextInput = document.getElementById(nextId);
-    
+
     if (prevInput && e.target.value.length === 0) {
       prevInput.focus();
     } else if (nextInput) {
       nextInput.focus();
     }
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await verifyOtp({email: unverifiedUser, otp})
-      console.log("res",res)
-      dispatch(setCredentials({...res.data}))
-      navigate("/home")
+      const res = await verifyOtp({ email: unverifiedUser, otp });
+      console.log("res", res);
+      dispatch(setCredentials({ ...res.data }));
+      navigate("/home");
     } catch (error) {
-      console.log("error: ", error)
+      console.log("error: ", error);
     }
     console.log("unverifiedUser", unverifiedUser);
     console.log("opt: ", otp);
