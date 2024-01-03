@@ -3,7 +3,7 @@ import DP from "../../assets/faces/user-dp.jpeg";
 import Tweet from "./Tweet";
 import { Link } from "react-router-dom";
 
-const Feed = () => {
+const Feed = ({ toggleSidebar }) => {
   return (
     <>
       {/* Navbar */}
@@ -11,9 +11,9 @@ const Feed = () => {
         <div className="flex flex-col">
           <div className="flex flex-row items-center justify-between  px-4">
             {/* Your navigation content goes here */}
-            <div className="w-9 h-9">
+            <button onClick={toggleSidebar} className="w-9 h-9">
               <img className="w-8 h-8 rounded-full" src={DP} alt="" />
-            </div>
+            </button>
             <div className="py-4">
               <i className="fa-brands fa-twitter fa-2xl opacity-90"></i>
             </div>
