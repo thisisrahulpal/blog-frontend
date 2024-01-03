@@ -19,7 +19,6 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <div className="flex flex-col p-4">
           <div className="flex w-60 justify-between ">
             <img className="w-10 h-10 rounded-full" src={DP} alt="" />
-
             <button
               onClick={toggleSidebar}
               className="text-white focus:outline-none"
