@@ -2,8 +2,11 @@ import React from "react";
 import DP from "../../assets/faces/user-dp.jpeg";
 import Tweet from "./Tweet";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Feed = ({ toggleSidebar }) => {
+  const { userInfo } = useSelector((state) => state.auth);
+
   return (
     <>
       {/* Navbar */}
@@ -12,7 +15,11 @@ const Feed = ({ toggleSidebar }) => {
           <div className="flex flex-row items-center justify-between  px-4">
             {/* Your navigation content goes here */}
             <button onClick={toggleSidebar} className="w-9 h-9">
-              <img className="w-8 h-8 rounded-full" src={DP} alt="" />
+              <img
+                className="w-9 h-9 rounded-full"
+                src={userInfo.picture}
+                alt=""
+              />
             </button>
             <div className="py-4">
               <i className="fa-brands fa-twitter fa-2xl opacity-90"></i>
