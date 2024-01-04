@@ -1,751 +1,109 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import tweetDp from "../../assets/faces/user-dp.jpeg";
 import { BiSolidBadgeCheck } from "react-icons/bi";
 import Skeleton from "../Util/Skeleton";
+import Like from "../Util/Like";
+import Comment from "../Util/Comment";
+import Retweet from "../Util/Retweet";
+import Views from "../Util/Views";
+import Bookmark from "../Util/Bookmark";
+import { foryou } from "../../assets/Data/posts";
 
 const Foryou = () => {
+  const [data, setData] = useState(foryou);
+
+  const handleLike = (_id) => {
+    const likedPost = data.find((post) => post._id == _id);
+
+    const updatedData = data.map((post) =>
+      post._id === likedPost._id
+        ? {
+            ...post,
+            isLike: !post.isLike,
+            likeCount: post.isLike ? post.likeCount - 1 : post.likeCount + 1,
+          }
+        : post
+    );
+    console.log("🚀 ~ updatedData:", updatedData);
+    setData(updatedData);
+    return;
+  };
+
+  const handleRetweet = (_id) => {
+    const retweetedPost = data.find((post) => post._id == _id);
+
+    const updatedData = data.map((post) =>
+      post._id === retweetedPost._id
+        ? {
+            ...post,
+            isRetweeted: !post.isRetweeted,
+            retweetCount: post.isRetweeted
+              ? post.retweetCount - 1
+              : post.retweetCount + 1,
+          }
+        : post
+    );
+    console.log("🚀 ~ updatedData:", updatedData);
+    setData(updatedData);
+    return;
+  };
+
   return (
     <>
       {/* <Skeleton /> */}
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
+      {data.map((data, index) => (
+        <div
+          key={data._id}
+          className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75"
+        >
+          {/* DP */}
+          <div className="w-10 h-10 mr-3">
+            <img className="rounded-full" src={tweetDp} alt="" />
           </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>
-              For you Big companies steadily increase their Dilbert score over time like
-              entropy
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
+          <div className="w-full pb-3 ">
+            {/* Head */}
+            <div className="flex items-center justify-between">
+              <div className="flex items-center">
+                <p className="text-md font-bold pr-1">{data.name}</p>
+                <BiSolidBadgeCheck className="text-blue-400 scale-125" />
+                <p className="font-roboto text-md text-gray-500 pl-1">
+                  {data.username}
+                </p>
+                <p className="font-roboto text-md text-gray-500 px-1">.</p>
+                <p className="font-roboto text-md text-gray-500">1h</p>
+              </div>
+              <div>
+                <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
+              </div>
             </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
+            {/* Body */}
+            <div className="font-roboto text-base opacity-90">
+              <p>{data.tweet}</p>
             </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
+            {/* buttons */}
+            <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
+              {/* comments */}
+              <Comment />
+              <Retweet
+                isRetweet={data.isRetweeted}
+                count={data.retweetCount}
+                onRetweet={handleRetweet}
+                id={data._id}
+              />
+              <Like
+                count={data.likeCount}
+                isLike={data.isLike}
+                id={data._id}
+                onLiked={handleLike}
+              />
+              <Views count={data.viewCount} />
+              <Bookmark isBookmark={data.isBookmark} />
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>If you want maximum global reach, use this platform</p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>It’s not me, it’s the RNG</p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>
-              This past week, there were hundreds of bogus media stories
-              claiming that I am antisemitic.
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>Looks like http://Instability.AI is still available</p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>
-              At risk of stating the obvious, anyone advocating the genocide of
-              *any* group will be suspended from this platform
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>
-              Many of the largest advertisers are the greatest oppressors of
-              your right to free speech.
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>
-              Big companies steadily increase their Dilbert score over time like
-              entropy
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>If you want maximum global reach, use this platform</p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>It’s not me, it’s the RNG</p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>
-              This past week, there were hundreds of bogus media stories
-              claiming that I am antisemitic.
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>Looks like http://Instability.AI is still available</p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>
-              At risk of stating the obvious, anyone advocating the genocide of
-              *any* group will be suspended from this platform
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75">
-        {/* DP */}
-        <div className="w-10 h-10 mr-3">
-          <img className="rounded-full" src={tweetDp} alt="" />
-        </div>
-        <div className="w-full pb-3 ">
-          {/* Head */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <p className="text-md font-bold pr-1">Rahul Pal</p>
-              <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-              <p className="font-roboto text-md text-gray-500 pl-1">
-                @rahulpal
-              </p>
-              <p className="font-roboto text-md text-gray-500 px-1">.</p>
-              <p className="font-roboto text-md text-gray-500">1h</p>
-            </div>
-            <div>
-              <i className="fa-solid fa-ellipsis fa-md text-gray-500"></i>
-            </div>
-          </div>
-          {/* Body */}
-          <div className="font-roboto text-base opacity-90">
-            <p>
-              Many of the largest advertisers are the greatest oppressors of
-              your right to free speech.
-            </p>
-          </div>
-          {/* buttons */}
-          <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
-            {/* comments */}
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-comment"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-retweet"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-regular fa-heart"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div className="flex space-x-1 items-center">
-              <i className="fa-solid fa-chart-simple"></i>
-              <p className="text-sm">4.4K</p>
-            </div>
-            <div>
-              <i className="fa-regular fa-bookmark"></i>
-            </div>
-          </div>
-        </div>
-      </div>
+      ))}
     </>
-  )
-}
+  );
+};
 
-export default Foryou
+export default Foryou;

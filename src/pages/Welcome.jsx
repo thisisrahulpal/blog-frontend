@@ -24,7 +24,7 @@ const Welcome = () => {
       picture
     }
     dispatch(setCredentials({...userData}))
-    navigate('/home')
+    navigate('/home/foryou')
   };
   const errorMessage = (response) => {
     console.log("response:", response);

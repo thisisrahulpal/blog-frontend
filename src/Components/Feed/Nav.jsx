@@ -37,7 +37,7 @@ const Nav = ({ toggleSidebar }) => {
               `ml-2 px-1 ${isActive ? "border-b-4  border-blue-400" : null}`
             }
           >
-            <button className="p-2 font-bold hover:bg-gray-900">For you</button>
+            <button className="p-2 font-bold ">For you</button>
           </NavLink>
           <NavLink
             to="/home/following"
@@ -45,7 +45,7 @@ const Nav = ({ toggleSidebar }) => {
               `ml-2 ${isActive ? "border-b-4  border-blue-400" : null}`
             }
           >
-            <button className="p-2 font-bold hover:bg-gray-900">
+            <button className="p-2 font-bold ">
               Following
             </button>
           </NavLink>
