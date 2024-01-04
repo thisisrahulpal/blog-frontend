@@ -9,7 +9,7 @@ const NewTweet = () => {
       <div className="flex items-center mt-1 justify-between px-4">
         <Link to="/home">
           <button className="mr-9 px-1 py-3">
-            <i class="fa-solid fa-arrow-left text-gray-200"></i>
+            <i className="fa-solid fa-arrow-left text-gray-200"></i>
           </button>
         </Link>
 
