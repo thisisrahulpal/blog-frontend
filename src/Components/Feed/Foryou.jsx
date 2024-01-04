@@ -3,7 +3,7 @@ import tweetDp from "../../assets/faces/user-dp.jpeg";
 import { BiSolidBadgeCheck } from "react-icons/bi";
 import Skeleton from "../Util/Skeleton";
 
-const Tweet = () => {
+const Foryou = () => {
   return (
     <>
       {/* <Skeleton /> */}
@@ -32,7 +32,7 @@ const Tweet = () => {
           {/* Body */}
           <div className="font-roboto text-base opacity-90">
             <p>
-              Big companies steadily increase their Dilbert score over time like
+              For you Big companies steadily increase their Dilbert score over time like
               entropy
             </p>
           </div>
@@ -745,7 +745,7 @@ const Tweet = () => {
         </div>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Tweet;
+export default Foryou

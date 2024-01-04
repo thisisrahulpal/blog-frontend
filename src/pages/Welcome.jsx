@@ -17,11 +17,11 @@ const Welcome = () => {
   const responseMessage = (response) => {
     const token = response.credential;
     setCookie('jwt', token, { path: '/' });
-    console.log("🚀 ~ token:", token)
-    const {email, name } = jwtDecode(token);
+    const {email, name, picture} = jwtDecode(token);
     const userData = {
       email,
-      name
+      name,
+      picture
     }
     dispatch(setCredentials({...userData}))
     navigate('/home')

@@ -19,6 +19,8 @@ import Tweet from "./Components/Tweet/NewTweet";
 import Welcome from "./pages/Welcome";
 import App from "./App.jsx";
 import PrivateRoute from "./Components/PrivateRoute.jsx";
+import Foryou from "./Components/Feed/Foryou.jsx";
+import Following from "./Components/Feed/Following.jsx";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,7 +32,10 @@ const router = createBrowserRouter(
         <Route path="/verifyOtp" element={<Otp />} />
 
         <Route path="" element={<PrivateRoute />}>
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<Home />}>
+            <Route path="/home/foryou" element={<Foryou />} />
+            <Route path="/home/following" element={<Following />} />
+          </Route>
         </Route>
       </Route>
     </>
