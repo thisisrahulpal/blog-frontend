@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Home from "../Feed/Feed";
 import { useDispatch, useSelector } from "react-redux";
 import { useVerfiyOtpMutation } from "../../features/userApiSlice";
 import { setCredentials } from "../../features/authSlice";

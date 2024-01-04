@@ -15,7 +15,6 @@ import Login from "./Components/Authentication/Login";
 import Otp from "./Components/Authentication/Otp";
 import Signup from "./Components/Authentication/Signup";
 import Home from "./pages/Home.jsx";
-import Tweet from "./Components/Tweet/NewTweet";
 import Welcome from "./pages/Welcome";
 import App from "./App.jsx";
 import PrivateRoute from "./Components/PrivateRoute.jsx";

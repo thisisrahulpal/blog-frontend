@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Feed from "../Components/Feed/Feed";
 import Menu from "../Components/Feed/Menu";
 import Sidebar from "../Components/Sidebar/Sidebar";
 import Nav from "../Components/Feed/Nav";
