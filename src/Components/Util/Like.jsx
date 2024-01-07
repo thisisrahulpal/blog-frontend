@@ -1,8 +1,11 @@
 import React from "react";
 
-const Like = ({ count, isLike, id, onLiked }) => {
+const Like = ({ count, isLike, id, likedPost }) => {
   return (
-    <button onClick={() => onLiked(id)} className="flex space-x-1 items-center">
+    <button
+      onClick={() => likedPost({ id, isLike: !isLike })}
+      className="flex space-x-1 items-center"
+    >
       {isLike ? (
         <i className="fa-solid fa-heart text-blue-500"></i>
       ) : (
