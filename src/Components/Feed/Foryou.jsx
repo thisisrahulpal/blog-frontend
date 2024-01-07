@@ -7,15 +7,29 @@ import Comment from "../Util/Comment";
 import Retweet from "../Util/Retweet";
 import Views from "../Util/Views";
 import Bookmark from "../Util/Bookmark";
-import { foryou } from "../../assets/Data/posts";
+import {
+  useBookmarkPostMutation,
+  useGetForYouPostQuery,
+  useLikedPostMutation,
+  useRetweetPostMutation,
+} from "../../features/postApiSlice";
+import { useUpdatePostMutation } from "../../features/postApiSlice";
 
 const Foryou = () => {
-  const [data, setData] = useState(foryou);
+  const [likedPost] = useLikedPostMutation();
+  const [retweetPost] = useRetweetPostMutation();
+  const [bookmarkPost] = useBookmarkPostMutation();
+
+  const { data, isLoading, isError } = useGetForYouPostQuery();
+
+  if (!data) {
+    return <div>No data available.</div>;
+  }
 
   const handleLike = (_id) => {
-    const likedPost = data.find((post) => post._id == _id);
+    const likedPost = postData.find((post) => post._id == _id);
 
-    const updatedData = data.map((post) =>
+    const updatedData = postData.map((post) =>
       post._id === likedPost._id
         ? {
             ...post,
@@ -30,9 +44,9 @@ const Foryou = () => {
   };
 
   const handleRetweet = (_id) => {
-    const retweetedPost = data.find((post) => post._id == _id);
+    const retweetedPost = postData.find((post) => post._id == _id);
 
-    const updatedData = data.map((post) =>
+    const updatedData = postData.map((post) =>
       post._id === retweetedPost._id
         ? {
             ...post,
@@ -51,9 +65,9 @@ const Foryou = () => {
   return (
     <>
       {/* <Skeleton /> */}
-      {data.map((data, index) => (
+      {data.map((postData, index) => (
         <div
-          key={data._id}
+          key={postData._id}
           className="px-4 pt-3 flex flex-rowpx-4 border-b border-gray-700/75"
         >
           {/* DP */}
@@ -64,10 +78,10 @@ const Foryou = () => {
             {/* Head */}
             <div className="flex items-center justify-between">
               <div className="flex items-center">
-                <p className="text-md font-bold pr-1">{data.name}</p>
+                <p className="text-md font-bold pr-1">{postData.name}</p>
                 <BiSolidBadgeCheck className="text-blue-400 scale-125" />
                 <p className="font-roboto text-md text-gray-500 pl-1">
-                  {data.username}
+                  {postData.username}
                 </p>
                 <p className="font-roboto text-md text-gray-500 px-1">.</p>
                 <p className="font-roboto text-md text-gray-500">1h</p>
@@ -78,26 +92,30 @@ const Foryou = () => {
             </div>
             {/* Body */}
             <div className="font-roboto text-base opacity-90">
-              <p>{data.tweet}</p>
+              <p>{postData.post}</p>
             </div>
             {/* buttons */}
             <div className="flex justify-between py-2 w-full  opacity-90 text-gray-400">
               {/* comments */}
               <Comment />
               <Retweet
-                isRetweet={data.isRetweeted}
-                count={data.retweetCount}
-                onRetweet={handleRetweet}
-                id={data._id}
+                isRetweet={postData.isRetweet}
+                count={postData.reTweetCount}
+                onRetweet={retweetPost}
+                id={postData._id}
               />
               <Like
-                count={data.likeCount}
-                isLike={data.isLike}
-                id={data._id}
-                onLiked={handleLike}
+                count={postData.likeCount}
+                isLike={postData.isLike}
+                id={postData._id}
+                likedPost={likedPost}
               />
-              <Views count={data.viewCount} />
-              <Bookmark isBookmark={data.isBookmark} />
+              <Views count={postData.viewCount} />
+              <Bookmark
+                isBookmark={postData.isBookmark}
+                bookmarkPost={bookmarkPost}
+                id={postData._id}
+              />
             </div>
           </div>
         </div>

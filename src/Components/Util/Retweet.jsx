@@ -2,7 +2,7 @@ import React from "react";
 
 const Retweet = ({ count, isRetweet, id, onRetweet }) => {
   return (
-    <button onClick={() => onRetweet(id)} className="flex space-x-1 items-center">
+    <button onClick={() => onRetweet({ id, isRetweet: !isRetweet })} className="flex space-x-1 items-center">
       {isRetweet ? (
         <i className="fa-solid fa-retweet text-blue-500"></i>
       ) : (
