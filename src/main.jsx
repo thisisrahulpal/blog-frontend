@@ -24,6 +24,7 @@ import Trending from "./Components/Search/Trending";
 import Search from "./pages/Search";
 import News from "./Components/Search/News";
 import Sports from "./Components/Search/Sports";
+import NewTweet from "./Components/Tweet/NewTweet"
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -44,6 +45,7 @@ const router = createBrowserRouter(
             <Route path="/search/news" element={<News />} />
             <Route path="/search/sports" element={<Sports />} />
           </Route>
+          <Route path="/tweet" element={<NewTweet />} />
         </Route>
       </Route>
     </>

@@ -13,7 +13,7 @@ const NewTweet = () => {
           </button>
         </Link>
 
-        <Link to="/home">
+        <Link to="/home/foryou">
           <button className="w-16 h-8 rounded-full bg-blue-400 font-roboto text-sm font-bold">
             Post
           </button>
