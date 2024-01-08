@@ -8,7 +8,7 @@ const Nav = ({ toggleSidebar }) => {
   return (
     <nav className="border-b mt-1 border-gray-700/75">
       <div className="flex flex-col">
-        <div className="flex flex-row items-center justify-between  px-4">
+        <div className="flex flex-row items-center justify-between px-4">
           {/* Your navigation content goes here */}
           <button onClick={toggleSidebar} className="w-9 h-9">
             {userInfo.picture ? (

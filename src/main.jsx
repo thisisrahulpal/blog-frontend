@@ -14,12 +14,16 @@ import { store } from "../src/app/store";
 import Login from "./Components/Authentication/Login";
 import Otp from "./Components/Authentication/Otp";
 import Signup from "./Components/Authentication/Signup";
-import Home from "./pages/Home.jsx";
+import Home from "./pages/Home";
 import Welcome from "./pages/Welcome";
-import App from "./App.jsx";
-import PrivateRoute from "./Components/PrivateRoute.jsx";
-import Foryou from "./Components/Feed/Foryou.jsx";
-import Following from "./Components/Feed/Following.jsx";
+import App from "./App";
+import PrivateRoute from "./Components/PrivateRoute";
+import Foryou from "./Components/Feed/Foryou";
+import Following from "./Components/Feed/Following";
+import Trending from "./Components/Search/Trending";
+import Search from "./pages/Search";
+import News from "./Components/Search/News";
+import Sports from "./Components/Search/Sports";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -32,8 +36,13 @@ const router = createBrowserRouter(
 
         <Route path="" element={<PrivateRoute />}>
           <Route path="/home" element={<Home />}>
-            <Route path="/home/foryou" element={<Foryou />} />
+            <Route index={true} path="/home/foryou" element={<Foryou />} />
             <Route path="/home/following" element={<Following />} />
+          </Route>
+          <Route path="/search" element={<Search />}>
+            <Route path="/search/trending" element={<Trending />} />
+            <Route path="/search/news" element={<News />} />
+            <Route path="/search/sports" element={<Sports />} />
           </Route>
         </Route>
       </Route>
