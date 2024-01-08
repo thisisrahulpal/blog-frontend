@@ -42,9 +42,9 @@ const Foryou = () => {
               {/* Head */}
               <div className="flex items-center justify-between">
                 <div className="flex items-center">
-                  <p className="text-md font-bold pr-1">{postData.name}</p>
+                  <p className="text-sm font-bold  pr-1">{postData.name}</p>
                   <BiSolidBadgeCheck className="text-blue-400 scale-125" />
-                  <p className="font-roboto text-md text-gray-500 pl-1">
+                  <p className="font-roboto text-sm text-gray-500 pl-1">
                     {postData.username}
                   </p>
                   <p className="font-roboto text-md text-gray-500 px-1">.</p>
