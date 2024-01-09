@@ -24,7 +24,7 @@ const signup = () => {
 
       console.log("🚀 ~ res:", res);
       dispatch(setCredentials({ ...res.data }))
-      navigate("/home");
+      navigate("/home/foryou");
       // setEmail("");
       // setName("");
     } catch (error) {

@@ -31,7 +31,7 @@ const Otp = () => {
       const res = await verifyOtp({ email: unverifiedUser, otp });
       console.log("res", res);
       dispatch(setCredentials({ ...res.data }));
-      navigate("/home");
+      navigate("/home/foryou");
     } catch (error) {
       console.log("error: ", error);
     }

@@ -29,15 +29,15 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <nav className="flex flex-col h-screen">
         <div className="flex flex-col p-4">
           <div className="flex w-60 justify-between ">
-            {userInfo.picture ? (
+            {userInfo.data.picture ? (
               <img
                 className="w-10 h-10 rounded-full"
-                src={userInfo.picture}
+                src={userInfo.data.picture}
                 alt=""
               />
             ) : (
               <div className="flex items-center justify-center w-10 h-10 rounded-full bg-slate-400">
-                {userInfo.name.charAt(0)}
+                {userInfo.data.name.charAt(0)}
               </div>
             )}
 
@@ -61,7 +61,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
               </svg>
             </button>
           </div>
-          <div className="font-roboto font-bold mt-1">{userInfo.name}</div>
+          <div className="font-roboto font-bold mt-1">{userInfo.data.name}</div>
           <div className="font-roboto text-zinc-500">@username</div>
           <div className="flex space-x-4 mb-5">
             <div className="flex mt-3 text-robboto text-sm">
